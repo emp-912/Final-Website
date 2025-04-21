@@ -1,0 +1,92 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Landing Page Background */
+#landing-page {
+  background: url("../images/pixel-background.png") no-repeat center
+    center/cover;
+  cursor: pointer;
+}
+
+/* Character Selection Background */
+#character-selection {
+  background: url("../images/charback.png") no-repeat center center/cover;
+}
+
+/* Character Card Styles */
+.character-card {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.character-card:hover {
+  transform: scale(1.1);
+}
+
+.character-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Navbar */
+.navbar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-brand {
+  font-family: "Pacifico", cursive;
+  font-size: 1.8rem;
+  color: inherit;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+  color: inherit;
+}
+
+/* Section Titles */
+.section-title {
+  font-weight: bold;
+  color: inherit;
+}
+
+/* Footer */
+.footer {
+  background-color: #212529;
+  color: #adb5bd;
+  padding: 20px 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Override Bootstrap .bg-light on footer */
+.footer.bg-light {
+  background-color: #212529 !important;
+  color: #adb5bd !important;
+}
+
+/* Skill Box */
+.skill-box {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s;
+  height: 100%;
+}
+
+.skill-box:hover {
+  transform: translateY(-5px);
+  background-color: #f8f9fa;
+}
+
+.skill-icon {
+  font-size: 2rem;
+  color: inherit;
+  margin-bottom: 10px;
+}
