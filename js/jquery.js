@@ -34,7 +34,6 @@ $(document).ready(function () {
     { name: "About Me", url: "about.html" },
     { name: "Projects", url: "project.html" },
     { name: "Skills", url: "skill.html" },
-    { name: "Interests", url: "#interests" },
     { name: "Contact", url: "contact.html" }
   ];
 
