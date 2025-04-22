@@ -29,28 +29,44 @@ $(function () {
         .animate({ marginTop: "+=20px" }, 200);
     });
 
-  // jQuery autosuggest for search
-  var sections = ["About Me", "Projects", "Skills", "Interests", "Contact"];
-  $("#search-input")
-    .attr("autocomplete", "off")
-    .on("input", function () {
-      var val = $(this).val().toLowerCase();
-      var $ul = $("#suggestions").empty();
-      if (!val) {
-        $ul.hide();
-        return;
-      }
-      var matches = sections.filter(function (s) {
-        return s.toLowerCase().includes(val);
-      });
-      matches.forEach(function (item) {
+$(document).ready(function () {
+  const sections = [
+    { name: "About Me", url: "about.html" },
+    { name: "Projects", url: "project.html" },
+    { name: "Skills", url: "skill.html" },
+    { name: "Interests", url: "#interests" },
+    { name: "Contact", url: "contact.html" }
+  ];
+
+  const $input = $("#search-input");
+  const $suggestions = $("#suggestions");
+
+  $input.attr("autocomplete", "off").on("input", function () {
+    const val = $(this).val().toLowerCase();
+    $suggestions.empty();
+
+    if (!val) {
+      $suggestions.hide();
+      return;
+    }
+
+    const matches = sections.filter(section =>
+      section.name.toLowerCase().includes(val)
+    );
+
+    if (matches.length === 0) {
+      $suggestions.slideUp(150);
+    } else {
+      matches.forEach(match => {
         $("<li>")
           .addClass("list-group-item list-group-item-action")
-          .text(item)
-          .appendTo($ul);
+          .text(match.name)
+          .attr("data-url", match.url)
+          .appendTo($suggestions);
       });
-      matches.length ? $ul.slideDown(150) : $ul.slideUp(150);
-    });
+      $suggestions.slideDown(150);
+    }
+  });
 
   // Click suggestion => smooth scroll
   $("#suggestions").on("click", "li", function () {
